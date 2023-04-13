@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annonces | <%= page %></title>
+    <link rel="stylesheet" href="/css/style.css">
+    
+</head>
+<body>
+    
+<header>
+    <a href="/" class="brand">Annonces</a>
+    <ul class="navbar">   
+        <li class="nav-item">
+            <a href="/" >Home</a>
+        </li>    
+        <% if (page === 'dashboard' || page === 'Dashboard - profile'|| page === 'Dashboard - annonces') { %>
+            <li class="nav-item">
+                <a href="/dashboard/annonces">Annonces</a>
+            </li>
+            <li class="nav-item">
+                <a href="/dashboard/me">Profile</a>
+            </li>
+            <li class="nav-item">
+                <form action="/u/logout" method="post">
+                    <input class="logout" type="submit" value="Logout">
+                </form>
+            </li>
+        <% } %>
+
+        <% if (page === 'home') { %>
+            <% if (auth) { %>
+                <li class="nav-item">
+                    <a href="/dashboard" >Dashboard</a>
+                </li>
+            <% } else {  %>
+                <li class="nav-item">
+                    <a href="/u/login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/u/register">Register</a>
+                </li>
+            <% } %>
+        <% } %>
+
+    </ul>
+</header>

@@ -1,0 +1,86 @@
+<%- include('../../layout/header', { page: 'Dashboard - annonces', auth: true}) %>
+
+<div class="container">
+    <h1 class="dash-title">annonces</h1>
+    <div>
+        <a href="/dashboard/annonces/create" class="btn-success">Create a new annonce</a>
+    </div>
+    <div class="dash-container">
+        <% if (!annonces.length) { %>
+         <div>
+            No data to show !
+         </div>
+        <% } %>
+        <% annonces.forEach(annonce => { %>
+         <div class="single-annonce">
+            <h3 class="annonce-title"><%= annonce.title %></h3>
+            <div class="annonce-info">
+                <span>Created by : <%= annonce.user.username %></span>
+                <span>At : <%= new Date(annonce.dateDep).toLocaleDateString()%></span>
+            </div>
+            <span class="annonce-price"><%= annonce.price %> DH</span>
+            <div>
+                <p class="annonce-description">
+                    <%= annonce.description.length >= 50 ? `${annonce.description.slice(0,50)} ... (plus)` : annonce.description %>
+                </p>
+            </div>
+            <div class="annonce-info">
+                <span>Categories : <%= annonce.category %></span>
+                <span>Achat vente : <%= annonce.achatVente %></span>
+            </div>
+            <div class="actions">
+                <a href="/dashboard/annonces/<%= annonce.reference %>" class="edit-btn">edit</a>
+                <form action="/dashboard/annonces/<%= annonce.reference %>?_method=DELETE" method="post">
+                    <input type="submit" value="delete" class="delete-btn confirm_delete">
+                </form>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"
+        integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleais.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $('.confirm_delete').click(function(event) {
+            var form = $(this).closest("form");
+            var name = $(this).data("type");
+            event.preventDefault();
+            swal({
+                    type: 'warning',
+                    title: 'Are you sure to delete this annonce',
+                    icon: "warning",
+                    buttons: {
+                        cancel: {
+                            text: "cancel",
+                            value: null,
+                            visible: true,
+                            className: "btn btn-danger",
+                            closeModal: true,
+
+                        },
+                        confirm: {
+                            text: "delete",
+                            value: true,
+                            visible: true,
+                            className: "btn btn-success",
+                            closeModal: false
+                        }
+                    },
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        form.submit();
+                    }
+                });
+        });
+</script>
+<%- include('../../layout/footer') %>

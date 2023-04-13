@@ -1,0 +1,58 @@
+<%- include('../../layout/header', { page:'Dashboard - profile', auth:true }) %>
+
+<div class="container">
+    <% if ( error ) { %>
+     <div class="error">
+        <h3>Error. occured!</h3>
+        <%= error %>
+     </div>
+    <% } %>
+    <% if (success) { %>
+        <div class="success">
+            <h3>Successfully !</h3>
+            <%= success %>
+         </div>
+    <% } %>
+    <h1 class="dash-title">Profile</h1>
+    <div class="dash-container">
+        <div class="dash-user-info">
+            <form action="">
+                <h2><%= user.username.toUpperCase() %>'s information </h2>
+                <div class="input-group">
+                    <label class="label-control">E-mail</label>
+                    <input type="email" name="email" disabled class="input-control" value="<%= user.email %>">
+                </div>
+                <div class="input-group">
+                    <label class="label-control">Address</label>
+                    <input type="text" name="address" disabled class="input-control" value="<%= user.address %>">
+                </div>
+                <div>
+                    <input type="submit" disabled class="input-submit" value="update">
+                </div>
+            </form>
+        </div>
+        <div class="dash-user-info">
+            <form action="/u/reset-password" method="POST">
+                <h2>Update password ! </h2>
+                <div class="input-group">
+                    <label class="label-control">Current password</label>
+                    <input type="password" name="current_password" class="input-control" >
+                </div>
+                <div class="input-group">
+                    <label class="label-control">New password</label>
+                    <input type="password" name="new_password" class="input-control" >
+                </div>
+                <div class="input-group">
+                    <label class="label-control">Confirm new password</label>
+                    <input type="password" name="confirm_new_password" class="input-control" >
+                </div>
+                <div>
+                    <input type="submit" class="input-submit" value="update">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<%- include('../../layout/footer') %>

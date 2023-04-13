@@ -1,0 +1,29 @@
+<%- include('../layout/header', { page:'login', auth:null }) %>
+
+<div class="container">
+    <% if (error) { %>
+        <div class="error">
+           <h4>Err. occured !</h4>
+           <%= error %>
+        </div>
+       <% } %>
+    <form action="/u/login" method="post" class="form">
+        <h1>Login</h1>
+        <div class="input-group">
+            <label class="label-control">Username</label>
+            <input type="text" name="username" value="<%= username ? username : ""  %>" class="input-control" placeholder="Username">
+        </div>
+        <div class="input-group">
+            <label class="label-control">Password</label>
+            <input type="password" name="password" class="input-control" placeholder="*********">
+        </div>
+        <div class="input-group">
+            <a href="/u/register" class="link">Register account.</a>
+        </div>
+        <div>
+            <input type="submit" class="input-submit" value="login">
+        </div>
+    </form>
+</div>
+
+<%- include('../layout/footer') %>

@@ -1,0 +1,61 @@
+<%- include('../../layout/header', { page: 'Dashboard - annonces', auth: true}) %>
+
+<div class="container">
+    <% if (error) { %>
+        <div class="error">
+           <h4>Err. occured !</h4>
+           <%= error %>
+        </div>
+       <% } %>
+    <form action="/dashboard/annonces/create" method="post" class="annonce">
+        <h1>Create an annonce</h1>
+        <div class="input-group">
+            <label class="label-control">Reference</label>
+            <input type="text" value="<%= reference && reference %>" name="reference" class="input-control">
+        </div>
+        <div class="input-group">
+            <label class="label-control">Title</label>
+            <input type="text" value="<%= title && title %>" name="title" class="input-control">
+        </div>
+        <div class="input-group">
+            <label class="label-control">Description</label>
+            <textarea class="input-control" name="description" cols="30" rows="10"><%= description && description %></textarea>
+        </div>
+        <div class="input-group">
+            <label  class="label-control">Categories</label>
+            <div>
+                <label for="cat1">Voiture</label>
+                <input type="checkbox" name="category[]" <%= category?.indexOf("Voiture") && 'checked' %> value="Voiture" id="cat1" class="input-control">
+
+                <label for="cat2">Ordinateur</label>
+                <input type="checkbox" name="category[]" <%= category?.indexOf("Ordinateur") && 'checked' %> value="Ordinateur" id="cat2" class="input-control">
+
+                <label for="cat3">Appartement</label>
+                <input type="checkbox" name="category[]" <%= category?.indexOf("Appartement") && 'checked' %> value="Appartement" id="cat3" class="input-control">
+            </div>
+        </div>
+        <div class="input-group">
+            <label class="label-control">Achat vente</label>
+            <div>
+                <label for="ach1">Achat</label>
+                <input type="checkbox" name="achatVente[]" value="Achat" id="ach1" class="input-control">
+
+                <label for="ach2">Vente</label>
+                <input type="checkbox" name="achatVente[]" value="Vente" id="ach2" class="input-control">
+
+                <label for="ach2">Echange</label>
+                <input type="checkbox" name="achatVente[]" value="Echange" id="ach2" class="input-control">
+            </div>
+        </div>
+        <div class="input-group">
+            <label>Price</label>
+            <input type="number" value="<%= price && price %>" step="0.01" name="price" class="input-control">
+        </div>
+
+        <div >
+            <input type="submit" value="Save" class="input-submit">
+        </div>
+    </form>
+</div>
+
+<%- include('../../layout/footer') %>

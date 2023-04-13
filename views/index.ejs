@@ -1,0 +1,27 @@
+<%- include('./layout/header', { page:'home', auth }) %>
+
+<div class="container">
+    <h1>Annonces</h1>
+    <% annonces.forEach(annonce => { %>
+        <div class="single-annonce">
+           <h3 class="annonce-title"><%= annonce.title %></h3>
+           <div class="annonce-info">
+               <span>Created by : <%= annonce.user.username %></span>
+               <span>At : <%= new Date(annonce.dateDep).toLocaleDateString()%></span>
+           </div>
+           <span class="annonce-price"><%= annonce.price %> DH</span>
+           <div>
+               <p class="annonce-description">
+                   <%= annonce.description %>
+               </p>
+           </div>
+           <div class="annonce-info">
+               <span>Categories : <%= annonce.category %></span>
+               <span>Achat vente : <%= annonce.achatVente %></span>
+           </div>
+       </div>
+       <% }) %>
+</div>
+
+
+<%- include('./layout/footer') %>

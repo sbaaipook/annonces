@@ -1,0 +1,9 @@
+{
+    "name": "annonces",
+    "privats" : {
+        "secret_key": "APP_SECRET"
+    },
+    "settings": {
+        "mongodb_url": "DB_URL"
+    }
+}

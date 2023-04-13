@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+header {
+    padding: 1rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2848fd;
+}
+.navbar {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+.brand {
+    color: #dad8d8;
+    font-size: 2.5em;
+}
+.container {
+    padding: 5rem;
+    height: max-content;
+    background-color: #dad7d7;
+}
+.nav-item {
+    font-size: 1.2em;
+    transition: .5s ease;
+}
+.nav-item:hover {
+    text-decoration: underline;
+}
+.nav-item a {
+    color: #dad7d7;
+}
+.nav-item a:hover {
+    text-decoration: underline;
+}
+.logout {
+    border: none;
+    background-color: #dad8d8;
+    font-size: .9em;
+    padding: .2rem .5rem;
+    color: #2848fd;
+    cursor: pointer;
+    color: #555555;
+}
+
+.container .form {
+    width: 50%;
+    margin: 1rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    box-shadow: 6px 6px 10px #bebebe;
+}
+.annonce {
+    width: 65%;
+    margin: 1rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    box-shadow: 6px 6px 10px #bebebe;
+}
+.container form h1 {
+    color: #2848fd;
+    margin: 2rem 0;
+}
+.input-group {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+}
+.input-control {
+    padding: .5rem;
+    border: 1px solid #dfdddd;
+    margin-top: .5rem;
+    outline: 2px solid #2848fd00;
+    transition: all .5s ease;
+
+}
+.input-control:focus {
+    outline: 2px solid #2848fd;
+}
+.link {
+    text-align: right;
+    color: #2848fd;
+    font-size: .8em;
+}
+.link:hover {
+    text-decoration: underline;
+}
+.input-submit {
+    border: none;
+    background-color: #2848fd;
+    font-size: 1em;
+    padding: .6rem 1.8rem;
+    color: #2848fd;
+    cursor: pointer;
+    color: #dfdddd;
+    transition: .5s ease;
+}
+.input-submit:hover {
+    box-shadow: 2px 2px 4px #999898b0;
+}
+.label-control {
+    font-size: .9em;
+    font-weight: 600;
+    color: #555555;
+}
+.dash-title {
+    margin: 1rem 0;
+    color: #2848fd;
+}
+.dash-container {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+.dash-user-info {
+    width: 100%;
+    padding: 1rem;
+    background-color: #ffffff;
+    box-shadow: 6px 6px 10px #bebebe;
+}
+.table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #eceaea;
+    border-radius: 1rem 1rem 0 0;
+}
+.table thead tr th{
+    padding: .5rem 0;
+}
+.btn-success {
+    display: block;
+    padding: .8rem 2rem;
+    background-color: #007a5c;
+    color: #dad8d8;
+    width: max-content;
+    margin: 1rem 0;
+    font-weight: 600;
+    transition: .2s ease;
+}
+.btn-success:hover {
+    box-shadow: 4px -4px 0px #015a44;
+}
+.single-annonce {
+    padding: 1rem;
+    margin: 1rem 0;
+    background-color: #f7f4f4;
+    width: 30%;
+}
+.annonce-title {
+    font-weight: 400;
+}
+.annonce-title::first-letter ,
+.dash-title::first-letter {
+    text-transform: uppercase;
+}
+
+.annonce-info span {
+    font-size: .8em;
+    font-weight: 600;
+    display: block;
+}
+.annonce-price {
+    display: block;
+    font-size: .8em;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+.annonce-description {
+    margin-bottom: 1rem;
+    width: 100%;
+}
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.edit-btn {
+    display: block;
+    padding: .2rem 1rem;
+    background-color: #383838;
+    color: #f3f0f0;
+    width: max-content;
+    margin: .5rem 0;
+}
+.delete-btn {
+    border: none;
+    cursor: pointer;
+    display: block;
+    padding: .3rem 1rem;
+    background-color: #f85f5f;
+    color: #f3f0f0;
+    width: max-content;
+    margin: .5rem 0;
+}
+.error {
+    width: 65%;
+    margin: 2rem auto;
+    color: #dad7d7;
+    background-color: tomato;
+    padding: 3rem;
+}
+.success {
+    width: 65%;
+    margin: 2rem auto;
+    color: #dad7d7;
+    background-color: #00910c;
+    padding: 3rem;
+}
+._404 {
+    height: 100vh;
+    background-color: #dad8d8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.home {
+    height: 80vh;
+    color: #555555;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

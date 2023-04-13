@@ -1,0 +1,34 @@
+{
+  "name": "annonces",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "dev": "node index.js"
+  },
+  "keywords": [
+    "annonce",
+    "ads",
+    "login"
+  ],
+  "author": "Abdessade Sbaai",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "config": "^3.3.9",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "joi": "^17.9.1",
+    "joi-objectid": "^4.0.2",
+    "jsonwebtoken": "^9.0.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^7.0.3"
+  },
+  "devDependencies": {
+    "debug": "^4.3.4",
+    "nodemon": "^2.0.22"
+  }
+}
